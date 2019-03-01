@@ -17,14 +17,14 @@ const Task = ({ item, login, setCurrentTask }) => {
       <div className="card-body text-body py-2">
         {/* user name and e-mail */}
         <div className="row mt-0">
-          <div className="col-5">
+          <div className="col-sm-5">
             <div className="float-left">
               Username:
               <strong className="ml-2 text-primary">{username}</strong>
             </div>
           </div>
-          <div className="col-7">
-            <div className="float-right">
+          <div className="col-sm-7">
+            <div className="float-sm-right">
               E-mail:
               <strong className="ml-2 text-primary">{email}</strong>
             </div>

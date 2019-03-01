@@ -1,3 +1,14 @@
+## Task Description
+
+### Приложение для хранения списка задач согласно задания:
+
+- [описание задания](https://github.com/KNazarenko/todo-bj/blob/master/task%20description.txt)
+- [документация по back-end](https://uxcandy.com/~shapoval/test-task-backend/docs.html)
+
+### [Demo - pagination 1 (map)](https://knazarenko.zzz.com.ua/)
+
+### [Demo - pagination 2 (component)](https://knazarenko.github.io/todo-bj/)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

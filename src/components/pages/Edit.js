@@ -100,7 +100,7 @@ class Edit extends Component {
 
           <input
             type="submit"
-            value="Add task"
+            value="Update task"
             className="btn btn-secondary btn-block"
           />
         </form>

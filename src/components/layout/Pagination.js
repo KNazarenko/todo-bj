@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getTasks } from './../../actions/tasksActions';
-import { setActivePage } from './../../actions/sortActions';
-import { Link } from 'react-router-dom';
+import { getTasks } from '../../actions/tasksActions';
+import { setActivePage } from '../../actions/sortActions';
+import PaginationBtn from './PaginationBtn';
 
 const Pagination = ({
   setActivePage,
@@ -19,54 +19,40 @@ const Pagination = ({
 
   // Number of pages
   const pages = Math.ceil(allTasks / 3);
-  let pagesArr = [];
-  for (let i = 0; i < pages; i++) {
-    pagesArr[i] = i + 1;
-  }
 
   return (
     <nav aria-label="Page navigation example" className="mt-0">
       <ul className="pagination justify-content-end">
-        <li
-          className={`page-item ${
-            activePage === pagesArr[0] ? 'disabled' : ''
-          } `}
-        >
-          <Link
-            to={`/page/${activePage - 1}`}
-            className="page-link"
-            onClick={goTo.bind(null, activePage - 1)}
-          >
-            Previous
-          </Link>
-        </li>
-        {pagesArr.map(function(page) {
-          return (
-            <li
-              className={`page-item ${page === activePage ? 'active' : ' '}`}
-              key={page}
-            >
-              <Link
-                to={`/page/${page}`}
-                className="page-link"
-                onClick={goTo.bind(null, page)}
-              >
-                {page}
-              </Link>
-            </li>
-          );
-        })}
-
-        <li className={`page-item ${activePage === pages ? 'disabled' : ''} `}>
-          <Link
-            to={`/page/${activePage + 1}`}
-            className="page-link disabled"
-            tabIndex="-1"
-            onClick={goTo.bind(null, activePage + 1)}
-          >
-            Next
-          </Link>
-        </li>
+        <PaginationBtn
+          classname={activePage === 1 ? 'disabled' : ''}
+          page={1}
+          onClick={goTo.bind(null, 1)}
+          btnName="&laquo;"
+        />
+        <PaginationBtn
+          classname={activePage === 1 ? 'disabled' : ''}
+          page={activePage - 1}
+          onClick={goTo.bind(null, activePage - 1)}
+          btnName="Previous"
+        />
+        <PaginationBtn
+          classname="active"
+          page={activePage}
+          onClick={goTo.bind(null, activePage)}
+          btnName={activePage}
+        />
+        <PaginationBtn
+          classname={activePage === pages ? 'disabled' : ''}
+          page={activePage + 1}
+          onClick={goTo.bind(null, activePage + 1)}
+          btnName="Next"
+        />
+        <PaginationBtn
+          classname={activePage === pages ? 'disabled' : ''}
+          page={pages}
+          onClick={goTo.bind(null, pages)}
+          btnName="&raquo;"
+        />
       </ul>
     </nav>
   );
